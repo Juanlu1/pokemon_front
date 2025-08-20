@@ -1,21 +1,63 @@
+import { PokemonCard } from "@/components/pokemon/PokemonCard";
+import { PokemonFilterBar } from "@/components/pokemon/PokemonFilter";
+import { Button } from "@/components/ui/button";
+import { useFilters } from "@/hooks/useFilters";
+import { usePokemons } from "@/hooks/usePokemons";
 
-export function Home() {
-
-  function handleCreate() {
-    // navegar a Create form
-  }
-  
-  function handleEdit(p: any) {
-    // navegar a Edit form con p.id
-  }
-  
-  function handleDelete(p: any) {
-    // llamar servicio delete y luego refetch/react-query
-  }
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading pokemons</div>;
+const Home = () => {
+  const { filters, updateFilters } = useFilters();
+  const { pokemons, loading, error } = usePokemons(filters);
 
   return (
+    <div className="space-y-6 p-6">
+      <div className="flex justify-between items-center">
+        <PokemonFilterBar 
+          filters={filters} 
+          onFiltersChange={updateFilters} 
+        />
+        <Button>
+          Crear Nueva Carta
+        </Button>
+      </div>
+
+      {loading && (
+        <div className="text-center py-8">
+          <p>Loading...</p>
+        </div>
+      )}
+      
+      {error && (
+        <div className="text-center py-8 text-red-500">
+          <p>{error}</p>
+        </div>
+      )}
+
+      {pokemons?.data && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {pokemons.data.map((pokemon) => (
+            <PokemonCard
+              key={pokemon.id}
+              id={pokemon.id}
+              name={pokemon.name}
+              type={pokemon.type}
+              imageUrl={pokemon.imageUrl}
+              height={pokemon.height}
+              weight={pokemon.weight}
+              onEdit={() => {}}
+              onDelete={() => {}}
+              isCompact={true}
+            />
+          ))}
+        </div>
+      )}
+
+      {pokemons?.data.length === 0 && !loading && (
+        <div className="text-center py-8 text-gray-500">
+          <p>No se encontraron pokémons</p>
+        </div>
+      )}
+    </div>
   );
-}
+};
+
+export default Home;
