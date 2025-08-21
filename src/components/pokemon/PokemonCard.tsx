@@ -29,9 +29,11 @@ export function PokemonCard({
 
   return (
     <Card 
-      className={`transition-all duration-200 hover:shadow-lg ${
-        isCompact ? "cursor-pointer hover:scale-105" : ""
-      }`}
+      className={`transition-all duration-200 
+        ${isCompact 
+          ? "bg-white/50 hover:bg-gray-200 cursor-pointer hover:scale-105 shadow-md hover:shadow-lg"
+          : "bg-white shadow-md"} 
+      `}
       onClick={isCompact ? handleCardClick : undefined}
     >
       <CardHeader className="text-center pb-2">

@@ -33,7 +33,7 @@ const CreateCard = () => {
       </div>
 
       <div className="max-w-md mx-auto">
-        <Card>
+        <Card className="bg-white shadow-md">
           <CardHeader className="text-center">
             <CardTitle>Crear Nueva Carta</CardTitle>
           </CardHeader>

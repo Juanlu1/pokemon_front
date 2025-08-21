@@ -46,7 +46,7 @@ const EditCard = () => {
     <div className="p-6">
       <NavigationButtons />
       <div className="max-w-md mx-auto mt-8">
-        <Card>
+        <Card className="bg-white shadow-md">
           <CardHeader className="text-center">
             <CardTitle>Edit {pokemon.name}</CardTitle>
           </CardHeader>
