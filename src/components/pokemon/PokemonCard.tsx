@@ -63,20 +63,10 @@ export function PokemonCard({
 
       {!isCompact && (
         <CardFooter className="flex gap-2 pt-0">
-          <Button 
-            size="sm" 
-            variant="outline" 
-            onClick={onEdit}
-            className="flex-1"
-          >
+          <Button size="sm" variant="outline" onClick={onEdit} className="flex-1">
             Edit
           </Button>
-          <Button 
-            size="sm" 
-            variant="destructive" 
-            onClick={onDelete}
-            className="flex-1"
-          >
+          <Button size="sm" variant="outline" onClick={onDelete} className="flex-1">
             Delete
           </Button>
         </CardFooter>

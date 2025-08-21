@@ -17,6 +17,12 @@ export class PokemonService {
     return response.json();
   }
 
+  static async getById(id: number) {
+    const response = await fetch(`${API_URL}/pokemons/${id}`);
+    if (!response.ok) throw new Error("Error fetching pokemon");
+    return response.json();
+  }
+
   static async createPokemon(pokemon: CreatePokemonDto) {
     const response = await fetch(`${API_URL}/pokemons`, {
       method: "POST",

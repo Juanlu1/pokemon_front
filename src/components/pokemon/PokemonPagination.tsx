@@ -12,11 +12,11 @@ export function PokemonPagination({ page, setPage, total, limit }: Props) {
 
   return (
     <div className="flex gap-2 justify-center mt-6">
-      <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
+      <Button variant="outline" disabled={page === 1} onClick={() => setPage(page - 1)}>
         Prev
       </Button>
       <span className="px-2">Page {page} of {totalPages}</span>
-      <Button disabled={page === totalPages} onClick={() => setPage(page + 1)}>
+      <Button variant="outline" disabled={page === totalPages} onClick={() => setPage(page + 1)}>
         Next
       </Button>
     </div>
