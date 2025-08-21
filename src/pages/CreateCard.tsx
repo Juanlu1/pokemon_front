@@ -26,8 +26,8 @@ const CreateCard = () => {
 
   return (
     <div className="p-6">
-      <div className="mb-8">
-        <Button variant="outline" onClick={() => navigate('/')}>
+      <div className="mb-8 ">
+        <Button variant="outline" className="bg-gray-200 text-black hover:bg-gray-300" onClick={() => navigate('/')}>
           Home
         </Button>
       </div>

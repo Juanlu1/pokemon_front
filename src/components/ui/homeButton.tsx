@@ -11,13 +11,13 @@ export const NavigationButtons = () => {
   return (
     <div className="flex justify-between mb-4">
       {!isHome && (
-        <Button variant="outline" onClick={() => navigate('/')}>
+        <Button variant="outline" className="bg-gray-200 text-black hover:bg-gray-300" onClick={() => navigate('/')}>
           Home
         </Button>
       )}
       {!isCreate && (
-        <Button variant="outline" onClick={() => navigate('/pokemon/create')}>
-          Crear Nueva Carta
+        <Button variant="outline" className="bg-gray-200 text-black hover:bg-gray-300" onClick={() => navigate('/pokemon/create')}>
+          Create New Card
         </Button>
       )}
     </div>

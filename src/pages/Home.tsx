@@ -18,8 +18,8 @@ const Home = () => {
           filters={filters} 
           onFiltersChange={updateFilters} 
         />
-        <Button variant="outline" onClick={() => navigate('/pokemon/create')}>
-          Crear Nueva Carta
+        <Button variant="outline" className="flex bg-gray-200 text-black hover:bg-gray-300" onClick={() => navigate('/pokemon/create')}>
+          Create New Card
         </Button>
       </div>
 

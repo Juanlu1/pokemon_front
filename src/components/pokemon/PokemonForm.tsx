@@ -22,29 +22,29 @@ export const PokemonForm = ({
 }: PokemonFormProps) => (
   <form onSubmit={onSubmit} className="space-y-4">
     <div>
-      <Label htmlFor="name">Nombre</Label>
+      <Label htmlFor="name">Name</Label>
       <Input
         id="name"
         value={formData.name}
         onChange={(e) => onInputChange('name', e.target.value)}
-        placeholder="Nombre del Pokémon"
+        placeholder="Name of the Pokémon"
         required
       />
     </div>
 
     <div>
-      <Label htmlFor="type">Tipo</Label>
+      <Label htmlFor="type">Type</Label>
       <Input
         id="type"
         value={formData.type}
         onChange={(e) => onInputChange('type', e.target.value)}
-        placeholder="Tipo del Pokémon"
+        placeholder="Type of the Pokémon"
         required
       />
     </div>
 
     <div>
-      <Label htmlFor="height">Altura (m)</Label>
+      <Label htmlFor="height">Height (m)</Label>
       <Input
         id="height"
         type="number"
@@ -56,7 +56,7 @@ export const PokemonForm = ({
     </div>
 
     <div>
-      <Label htmlFor="weight">Peso (kg)</Label>
+      <Label htmlFor="weight">Weight (kg)</Label>
       <Input
         id="weight"
         type="number"
@@ -68,7 +68,7 @@ export const PokemonForm = ({
     </div>
 
     <div>
-      <Label htmlFor="imageUrl">URL de Imagen</Label>
+      <Label htmlFor="imageUrl">Image URL</Label>
       <Input
         id="imageUrl"
         type="url"
@@ -79,11 +79,11 @@ export const PokemonForm = ({
     </div>
 
     <div className="flex gap-2 pt-4">
-      <Button type="button" variant="outline" onClick={onCancel} className="flex-1">
-        Cancelar
+      <Button type="button" variant="outline" className="flex-1 bg-gray-200 text-black hover:bg-gray-300" onClick={onCancel}>
+        Cancel
       </Button>
-      <Button type="submit" disabled={loading} className="flex-1">
-        {loading ? 'Guardando...' : submitText}
+      <Button type="submit" variant="outline" disabled={loading} className="flex-1 bg-gray-200 text-black hover:bg-gray-300">
+        {loading ? 'Saving...' : submitText}
       </Button>
     </div>
   </form>

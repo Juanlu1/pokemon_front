@@ -11,22 +11,22 @@ export const PokemonFilterBar = ({ filters, onFiltersChange }: Props) => {
   return (
     <div className="flex gap-4 items-center">
       <Input
-        placeholder="Buscar por nombre o id..."
+        placeholder="Search by name or type..."
         value={filters.search || ''}
         onChange={(e) => onFiltersChange({ search: e.target.value })}
-        className="max-w-sm"
+        className="max-w-sm bg-gray-200 text-black hover:bg-gray-300"
       />
       
       <Select 
         value={filters.orderBy} 
         onValueChange={(value) => onFiltersChange({ orderBy: value as any })}
       >
-        <SelectTrigger className="w-32">
-          <SelectValue placeholder="Ordenar por" />
+        <SelectTrigger className="w-32 bg-gray-200 text-black hover:bg-gray-300">
+          <SelectValue placeholder="Sort by" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-gray-200 text-black">
           <SelectItem value="id">ID</SelectItem>
-          <SelectItem value="name">Nombre</SelectItem>
+          <SelectItem value="name">Name</SelectItem>
         </SelectContent>
       </Select>
 
@@ -34,10 +34,10 @@ export const PokemonFilterBar = ({ filters, onFiltersChange }: Props) => {
         value={filters.orderDir} 
         onValueChange={(value) => onFiltersChange({ orderDir: value as any })}
       >
-        <SelectTrigger className="w-32">
-          <SelectValue placeholder="Dirección" />
+        <SelectTrigger className="w-32 bg-gray-200 text-black hover:bg-gray-300">
+          <SelectValue placeholder="Direction" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-gray-200 text-black">
           <SelectItem value="asc">↑ A-Z</SelectItem>
           <SelectItem value="desc">↓ Z-A</SelectItem>
         </SelectContent>

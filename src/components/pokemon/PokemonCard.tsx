@@ -22,7 +22,7 @@ export function PokemonCard({
   isCompact = false,
 }: PokemonCardProps) {
   const navigate = useNavigate();
-
+  
   const handleCardClick = () => {
     navigate(`/pokemon/${id}`);
   };
@@ -38,7 +38,7 @@ export function PokemonCard({
         <img
           src={imageUrl}
           alt={name}
-          className="w-20 h-20 object-contain mx-auto mb-2"
+          className="w-50 h-50 object-contain mx-auto mb-2"
         />
         <CardDescription>#{id}</CardDescription>
         <CardTitle className="capitalize">{name}</CardTitle>
@@ -63,10 +63,10 @@ export function PokemonCard({
 
       {!isCompact && (
         <CardFooter className="flex gap-2 pt-0">
-          <Button size="sm" variant="outline" onClick={onEdit} className="flex-1">
+          <Button size="sm" variant="outline" onClick={onEdit} className="flex-1 bg-gray-200 text-black hover:bg-gray-300">
             Edit
           </Button>
-          <Button size="sm" variant="outline" onClick={onDelete} className="flex-1">
+          <Button size="sm" variant="outline" onClick={onDelete} className="flex-1 bg-gray-200 text-black hover:bg-gray-300">
             Delete
           </Button>
         </CardFooter>

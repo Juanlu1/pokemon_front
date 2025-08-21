@@ -39,8 +39,8 @@ const EditCard = () => {
     }
   };
 
-  if (loadingPokemon) return <div className="p-6 text-center">Cargando...</div>;
-  if (!pokemon) return <div className="p-6 text-center">Pokemon no encontrado</div>;
+  if (loadingPokemon) return <div className="p-6 text-center">Loading...</div>;
+  if (!pokemon) return <div className="p-6 text-center">Pokemon not found</div>;
 
   return (
     <div className="p-6">
@@ -48,7 +48,7 @@ const EditCard = () => {
       <div className="max-w-md mx-auto mt-8">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle>Editar {pokemon.name}</CardTitle>
+            <CardTitle>Edit {pokemon.name}</CardTitle>
           </CardHeader>
           <CardContent>
             <PokemonForm
@@ -57,7 +57,7 @@ const EditCard = () => {
               onSubmit={handleSubmit}
               onCancel={() => navigate(`/pokemon/${id}`)}
               loading={loading}
-              submitText="Guardar"
+              submitText="Save"
             />
           </CardContent>
         </Card>
