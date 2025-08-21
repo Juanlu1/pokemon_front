@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { PokemonService } from "@/services/PokemonService";
 import { usePokemon } from "@/hooks/usePokemon";
-import { NavigationButtons } from "@/components/ui/homeButton";
+import { NavigationButtons } from "@/components/ui/navigationButtons";
 import { PokemonCard } from "@/components/pokemon/PokemonCard";
 
 const ReadCard = () => {

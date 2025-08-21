@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PokemonService } from "@/services/PokemonService";
-import { NavigationButtons } from "@/components/ui/homeButton";
+import { NavigationButtons } from "@/components/ui/navigationButtons";
 import { usePokemon } from "@/hooks/usePokemon";
 import { PokemonForm } from "@/components/pokemon/PokemonForm";
 import { usePokemonForm } from "@/hooks/usePokemonForm";

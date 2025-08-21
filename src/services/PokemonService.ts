@@ -8,7 +8,6 @@ export class PokemonService {
       page: String(filters.page),
       pageSize: String(filters.pageSize),
       ...(filters.search ? { search: filters.search } : {}),
-      ...(filters.type ? { type: filters.type } : {}),
       ...(filters.orderBy ? { orderBy: filters.orderBy } : {}),
       ...(filters.orderDir ? { orderDir: filters.orderDir } : {}),
     });

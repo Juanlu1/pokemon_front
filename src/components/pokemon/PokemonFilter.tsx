@@ -38,8 +38,8 @@ export const PokemonFilterBar = ({ filters, onFiltersChange }: Props) => {
           <SelectValue placeholder="Direction" />
         </SelectTrigger>
         <SelectContent className="bg-gray-200 text-black">
-          <SelectItem value="asc">↑ A-Z</SelectItem>
-          <SelectItem value="desc">↓ Z-A</SelectItem>
+          <SelectItem value="asc">Asc</SelectItem>
+          <SelectItem value="desc">Desc</SelectItem>
         </SelectContent>
       </Select>
     </div>
