@@ -1,5 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import type { Pokemon } from "@/types/Pokemon";
 import { useNavigate } from "react-router-dom";
 
@@ -27,50 +28,59 @@ export function PokemonCard({
   };
 
   return (
-    <Card
-      className={`w-48 shadow-md ${isCompact ? "cursor-pointer" : ""}`}
+    <Card 
+      className={`transition-all duration-200 hover:shadow-lg ${
+        isCompact ? "cursor-pointer hover:scale-105" : ""
+      }`}
       onClick={isCompact ? handleCardClick : undefined}
     >
-      <CardContent className="flex flex-col items-center p-4">
+      <CardHeader className="text-center pb-2">
         <img
           src={imageUrl}
           alt={name}
-          className="w-24 h-24 object-contain"
+          className="w-20 h-20 object-contain mx-auto mb-2"
         />
-        <span className="text-gray-500 text-sm">{id}</span>
-        <h3 className="text-lg font-semibold">{name}</h3>
+        <CardDescription>#{id}</CardDescription>
+        <CardTitle className="capitalize">{name}</CardTitle>
+      </CardHeader>
 
-        {isCompact ? (
+      {!isCompact && (
+        <CardContent className="text-center space-y-3">
+          <Badge variant="secondary" className="capitalize">
+            {type}
+          </Badge>
           
-          <div className="mt-2 text-sm text-gray-500">
-            <p>Tap to see more</p>
+          <div className="flex justify-center gap-2">
+            <Badge variant="outline" className="text-xs">
+              {height}m
+            </Badge>
+            <Badge variant="outline" className="text-xs">
+              {weight}kg
+            </Badge>
           </div>
-        ) : (
-          <>
-            <div className="flex gap-1 mt-1">
-              <span className="text-xs bg-gray-200 px-2 rounded">
-                {type}
-              </span>
-            </div>
-            <div className="flex gap-1 mt-1">
-              <span className="text-xs bg-gray-200 px-2 rounded">
-                {height}m
-              </span>
-              <span className="text-xs bg-gray-200 px-2 rounded">
-                {weight}kg
-              </span>
-            </div>
-            <div className="flex gap-2 mt-3">
-              <Button size="sm" variant="outline" onClick={onEdit}>
-                Edit
-              </Button>
-              <Button size="sm" variant="destructive" onClick={onDelete}>
-                Delete
-              </Button>
-            </div>
-          </>
-        )}
-      </CardContent>
+        </CardContent>
+      )}
+
+      {!isCompact && (
+        <CardFooter className="flex gap-2 pt-0">
+          <Button 
+            size="sm" 
+            variant="outline" 
+            onClick={onEdit}
+            className="flex-1"
+          >
+            Edit
+          </Button>
+          <Button 
+            size="sm" 
+            variant="destructive" 
+            onClick={onDelete}
+            className="flex-1"
+          >
+            Delete
+          </Button>
+        </CardFooter>
+      )}
     </Card>
   );
 }

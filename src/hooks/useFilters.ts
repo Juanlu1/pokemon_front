@@ -13,9 +13,13 @@ export const useFilters = () => {
     setFilters(prev => ({ 
       ...prev, 
       ...newFilters, 
-      page: 1
+      page: newFilters.page !== undefined ? newFilters.page : 1
     }));
   };
 
-  return { filters, updateFilters };
+  const setPage = (page: number) => {
+      setFilters(prev => ({ ...prev, page }));
+    };
+
+    return { filters, updateFilters, setPage };
 };

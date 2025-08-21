@@ -1,11 +1,12 @@
 import { PokemonCard } from "@/components/pokemon/PokemonCard";
 import { PokemonFilterBar } from "@/components/pokemon/PokemonFilter";
+import { PokemonPagination } from "@/components/pokemon/PokemonPagination";
 import { Button } from "@/components/ui/button";
 import { useFilters } from "@/hooks/useFilters";
 import { usePokemons } from "@/hooks/usePokemons";
 
 const Home = () => {
-  const { filters, updateFilters } = useFilters();
+  const { filters, updateFilters, setPage } = useFilters();
   const { pokemons, loading, error } = usePokemons(filters);
 
   return (
@@ -49,6 +50,15 @@ const Home = () => {
             />
           ))}
         </div>
+      )}
+      
+      {pokemons && pokemons.data.length > 0 && (
+        <PokemonPagination
+          page={filters.page}
+          setPage={setPage}
+          total={pokemons.total}
+          limit={filters.pageSize}
+        />
       )}
 
       {pokemons?.data.length === 0 && !loading && (
