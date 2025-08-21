@@ -4,7 +4,7 @@ import type { PokemonFilters } from '@/types/Pokemon';
 export const useFilters = () => {
   const [filters, setFilters] = useState<PokemonFilters>({
     page: 1,
-    pageSize: 20,
+    pageSize: 21,
     orderBy: 'id',
     orderDir: 'asc'
   });
