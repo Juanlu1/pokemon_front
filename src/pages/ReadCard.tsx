@@ -9,8 +9,8 @@ const ReadCard = () => {
   const navigate = useNavigate();
   const { pokemon, loading } = usePokemon(Number(id));
 
-  const handleEdit = () => navigate(`/pokemon/${id}/edit`);
-  
+  const handleEdit = () => navigate(`/pokemon/edit/${id}`);
+
   const handleDelete = async () => {
     if (confirm(`¿Eliminar ${pokemon?.name}?`)) {
       await PokemonService.deletePokemon(Number(id));
